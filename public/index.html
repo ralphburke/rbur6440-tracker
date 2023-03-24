@@ -1,12 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    a
+  <h3>Exercise 2: JS Objects</h3>
+  <div class="alert alert-success">
+    <p>To follow along with a tutor in advance, you can check out the <a class="inline_disabled"
+        href="https://scrimba.com/scrim/cNRQD4uR" target="_blank" rel="noopener">JS Objects Scrimba.</a></p>
+  </div>
+  <p>This exercise will be helpful for thinking about the data structures needed for the final assessments related to
+    the <a title="Design Brief 2023" href="https://canvas.sydney.edu.au/courses/48447/pages/design-brief-2023"
+      data-api-endpoint="https://canvas.sydney.edu.au/api/v1/courses/48447/pages/design-brief-2023"
+      data-api-returntype="Page">design brief</a>. You should use the design context and specifications provided below.
+  </p>
+  <details>
+    <summary style="cursor: pointer;"><strong>Design Context and Specifications</strong></summary>
+    <p>You are a freelance web designer/developer working with multiple clients. You need a way to keep track of the
+      different tasks you are completing for these clients and any associated data. By tracking this information, you
+      can make sure you are able to invoice the clients accurately and get paid for your hard work.</p>
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>
+            <p><strong>Property</strong></p>
+          </td>
+          <td>
+            <p><strong>Description</strong></p>
+          </td>
+          <td>
+            <p><strong>JS Data Type</strong></p>
+          </td>
+          <td>
+            <p><strong>Example Values</strong></p>
+          </td>
+          <td>
+            <p><strong>User Input</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>name</p>
+          </td>
+          <td>
+            <p>The name of the task entered by the user.</p>
+          </td>
+          <td>
+            <p>String</p>
+          </td>
+          <td>
+            <p>"Initial Sketches",<br />"Home page design",&nbsp;<br />"Backend dev",<br />"Database testing"</p>
+          </td>
+          <td>
+            <p>Yes -<br />Text Field</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>type</p>
+          </td>
+          <td>
+            <p>The categorisation of task based on the type of work being done.</p>
+          </td>
+          <td>
+            <p>String</p>
+          </td>
+          <td>
+            <p>"Concept Ideation",<br />"Wireframe Design",<br />"Application Coding",<br />"Testing/Debugging"</p>
+          </td>
+          <td>
+            <p>Yes -<br />Dropdown Select</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>id</p>
+          </td>
+          <td>
+            <p>A unique identifier for the item, which will help you keep track of new items and delete existing items.
+            </p>
+          </td>
+          <td>
+            <p>Number</p>
+          </td>
+          <td>
+            <p>1677119565771</p>
+          </td>
+          <td>
+            <p>No -<br />Automatic Generate</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>date</p>
+          </td>
+          <td>
+            <p>An automatically generated date for when the item was added.</p>
+          </td>
+          <td>
+            <p>String<br />(from Date Object)</p>
+          </td>
+          <td>
+            <p>"20/12/2012, 16:30:00"</p>
+          </td>
+          <td>
+            <p>No -<br />Automatic Generate</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>rate</p>
+          </td>
+          <td>
+            <p>An hourly rate for the type of task (These may change based on the difficulty of the task and expertise
+              required, or who the client is).</p>
+          </td>
+          <td>
+            <p>Number</p>
+          </td>
+          <td>
+            <p>35,<br />50,<br />80</p>
+          </td>
+          <td>
+            <p>Yes -&nbsp;<br />Number Field</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>time</p>
+          </td>
+          <td>
+            <p>The number of hours taken to complete the task.</p>
+          </td>
+          <td>
+            <p>Number</p>
+          </td>
+          <td>
+            <p>5,<br />3,<br />10</p>
+          </td>
+          <td>
+            <p>Yes -&nbsp;<br />Number Field</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>client</p>
+          </td>
+          <td>
+            <p>The name of the client the task was completed for.</p>
+          </td>
+          <td>
+            <p>String</p>
+          </td>
+          <td>
+            <p>"Google",<br /><br /></p>
+          </td>
+          <td>
+            <p>Yes -<br />Text Field</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br />Your job is to implement the data structures for a simple tracking application for keeping a log of work
+      tasks.&nbsp;</p>
+  </details>
+  <div id="ex-1">
+    <p>Create an object in JS called <strong>task. </strong>Setup the properties in this object to meet the needs
+      outlined in the data model specifications above. Here is a hint to get you started:</p>
+    <pre><span>let task = {<br />  name: "Initial Sketches",<br />  ...<br />}</span></pre>
+    <p>For the <em>id </em>property, for now just use the following value:</p>
+    <pre><code>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+    <p><span>"The&nbsp;</span><strong><code>Date.now()</code></strong><span>&nbsp;static method returns the number of
+        milliseconds elapsed since the&nbsp;</span><a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#the_ecmascript_epoch_and_timestamps">epoch</a><span>,
+        which is defined as the midnight at the beginning of January 1, 1970, UTC." (<a class="inline_disabled"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now"
+          target="_blank" rel="noopener">MDN Web Docs</a>) This provides a suitable enough value for our purposes to use
+        as a unique id.<br /></span></p>
+    <p><span>For the <em>date </em>property, we're going to also use the JavaScript <a class="inline_disabled"
+          title="Link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date"
+          target="_blank" rel="noopener">Date</a> object, with some additional formatting code so it is readable as a
+        date. You can use the following value:</span></p>
+    <pre><span>new Date().toISOString()</span></pre>
+    <p><em>Note: The <a class="inline_disabled" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank"
+          rel="noopener">ISO 8601 Date Standard</a> is very useful for storing dates as it represents date and time
+        values numerically in an internationally agreed format: </em><span><em>year, month, day, hour, minutes, seconds,
+          and milliseconds. For example, May 1, 2023 at 6:30 p.m. is represented as 2023-05-01 18:30:00.000. Due to the
+          descending order of date and time units, these values can also be chronologically sorted very
+          easily!</em><br /></span></p>
+    <p>Try to log the <strong>task </strong>object out to the console to see what it looks like.</p>
+    <pre>console.log(task)</pre>
+  </div>
+  <div id="ex-2">
+    <p>Create an empty array called <strong>taskList</strong>. Then write a function called <strong>addTask()</strong>
+      which has all the required input parameters to create a <strong>task</strong> object (i.e. all the properties from
+      the task object that aren't automatically generated):</p>
+    <ul>
+      <li>name</li>
+      <li>type</li>
+      <li>rate</li>
+      <li>time</li>
+      <li>client</li>
+    </ul>
+    <p>Cut and paste the task object definition into the function you've just created. In your object definition,
+      replace the static values for the above properties with the input parameters you just added to the
+      function.</p>
+    <p>At the bottom of the function, add the task object to the <strong>taskList</strong> array
+      (try to remember from the previous exercise how to add items to arrays).</p>
+    <p>Call the function with hard-coded input parameters, for example:</p>
+    <pre>addTask("Initial Sketches", "Concept Ideation", 50, 5, "Google");</pre>
+    <p>Come up with 4 more tasks of your own, adding them to the array using the above function call syntax.</p>
+    <p>Log the array out to the console, showing that it works for all your test tasks. Next week we will look at how to
+      populate these parameters with user input.</p>
+    <pre>console.log(taskList);</pre>
+  </div>
+  <h4>Advanced</h4>
+  <p>If you finish all the above tasks, read this documentation about <a class="inline_disabled"
+      href="https://www.javascriptinstitute.org/javascript-tutorial/classes-in-javascript/" target="_blank"
+      rel="noopener">JavaScript classes</a>. Classes give us a structured way of creating new objects. Try to rewrite
+    your task code to use a class for defining and creating new tasks.</p>
+
+
+  <header>
+    <h1>Task Tracker</h1>
+  </header>
+
+  <form id="taskform">
+    <div class="form-row">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required="true" />
+    </div>
+    <div class="form-row">
+      <label for="type">Type</label>
+      <select type="text" name="type" id="type" required="true">
+        <option value="Concept Ideation">Concept Ideation</option>
+        <option value="Wireframe Design">Wireframe Design</option>
+        <option value="Application Coding">Application Coding</option>
+        <option value="Testing/Debugging">Testing/Debugging</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="rate">Rate</label>
+      <input type="number" name="rate" id="rate" required="true" />
+    </div>
+    <div class="form-row">
+      <label for="time">Time</label>
+      <input type="number" name="time" id="time" required="true" />
+    </div>
+    <div class="form-row">
+      <label for="client">Client</label>
+      <input type="text" name="client" id="client" required="true" />
+    </div>
+    <div class="form-row">
+  <input type="submit">
+</div>
+  </form>
+
+  <h2>Tasks</h2>
+  <ul id="tasklist">
+  </ul>
+
+  <script src="script.js"></script>
+  </script>
 </body>
+
 </html>
